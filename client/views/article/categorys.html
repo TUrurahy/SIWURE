@@ -1,0 +1,132 @@
+<template name="categorys">
+    {{> sidebar}}
+    {{> header}}
+    {{> flashTemplates}}
+    {{> profilebar}}
+
+    <div id="mainContainer" class="app" style="width: 98%;left: 1%;">
+
+        <!-- ================  CREATE COMMENTS  ===================  -->
+        {{#if isCommentsCategory}}
+            <div class="form-group jumbotron shadow-z-5 createData">
+                <form class="form-comments form-group has-info">
+
+                    <div class="styled-input wide">
+                        <select id="categoryUPKES" name="categoryUPKES" class="form-control" >
+                            <option value=""></option>
+                            {{#each UpkesCategorys}}
+                                <option value="{{_id}}">{{judul}}</option>
+                            {{/each}}
+                        </select>
+                        <label>Sub Category II</label>
+                        <span></span>
+                    </div>
+
+                    <div class="styled-input wide">
+                        <input class="form-control floating-label" id="categoryUPKESNew" name="categoryUPKESNew" type="text" style="font-size: small;"><BR>
+                        <label>New Sub Category II</label>
+                        <span></span>
+                    </div>
+
+
+                    <div class="styled-input wide">
+                        <select id="categoryIII" name="categoryIII" class="form-control" >
+                            <option value="{{categoryDetail}}">{{categoryDetail}}</option>
+                            {{#each UpkesDetailCategorys}}
+                                <option value="{{categoryDetail}}">{{categoryDetail}}</option>
+                            {{/each}}
+                        </select>
+                        <label>Sub Category III</label>
+                        <span></span>
+                    </div>
+
+                    <div class="styled-input wide">
+                        <input class="form-control floating-label" id="categoryIIINew" name="categoryIIINew" type="text" style="font-size: small;"><BR>
+                        <label>New Sub Category III</label>
+                        <span></span>
+                    </div>
+
+
+                    <div class="styled-input wide">
+                        <select id="tipe" name="tipe" class="form-control" required>
+                            <option value=""></option>
+                            <option value="RSS">RSS</option>
+                            <option value="URL">URL</option>
+                            <option value="WEB ARTICLE">WEB ARTICLE</option>
+                            <option value="WIKIPEDIA">WIKIPEDIA</option>
+                        </select>
+                        <label>Pilih Tipe URL</label>
+                        <span></span>
+                    </div>
+
+                    <div class="styled-input wide">
+                        <input class="form-control floating-label" name="sURLS" type="text" style="font-size: small;" required><BR>
+                        <label>URL News</label>
+                        <span></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-raised btn-sm">Submit</button>
+                    <a class="cancel btn btn-raised btn-sm" href="#">Cancel</a>
+                </form>
+            </div>
+        {{/if}}
+
+        <div class="jumbotron">
+            <p class="namaHeader" >
+                Link URL Category
+            </p>
+        </div>
+        {{#each categorys}}
+            <div class="panel panel-default shadow-z-2 headerApp">
+                <div class="panel-heading shadow-z-1">
+                    <p class="namaHeader" style="position: relative;top: -1px;left: -40px">
+                        <a class="profileLink" id="{{createByID}}" href="#"><img class="img-circle btn-raised" style="position: relative;left:-5px;width: 30px;" src="{{pict}}"></a>
+                        {{judul}}
+                    </p>
+                    <form class="form-search">
+                        <div class="close has-info search" style="position: relative;top: -25px;">
+                            <a class="addComments mdi-content-add-box finishData" href=""></a>&nbsp;
+                            <a class="edit mdi-editor-mode-edit editData" href="#"></a>&nbsp;
+                            <a class="remove mdi-action-delete removeData" href="#"></a>
+                        </div>
+
+                    </form>
+                </div>
+
+
+                <div class="list-group-item">
+                    <div class="row-content">
+
+                        {{#if isEditingCategory}}
+                            <!-- =============== EDIT Data  ========================= -->
+                            <form class="form-edit">
+                                <input name="name" type="text" class="form-control" placeholder="Subject" value="{{judul}}"><BR>
+                                <button type="submit" class="btn btn-primary btn-raised mdi-content-save btn-sm"></button>
+                                <a class="cancel btn btn-raised mdi-content-clear btn-sm"></a>
+                            </form>
+                        {{else}}
+                            <!-- =============== Show data, bukan EDIT ========================= -->
+                            {{#each categoryURLs}}
+                                <div class="list-group-item jumbotron">
+                                    <div class="close has-info search" style="position: absolute;top: 0px;right: 10px;">
+                                        <a class="removeURL mdi-action-delete removeData" id="{{_id}}" href="#"></a>
+                                    </div>
+                                    <h6 class="mdi-action-account-box linkSubDetail"> By: {{createdAt}} / {{createBy}}</h6>
+                                    <p class="list-group-item-text">{{tipe}} ~ {{URL}}<BR></p>
+                                </div>
+                            {{/each}}
+
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+
+
+    </div>
+
+</template>
+
+<template name="searchCategorys">
+    {{judul}}
+</template>

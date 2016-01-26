@@ -1,0 +1,54 @@
+<template name="articleLists" xmlns="http://www.w3.org/1999/html">
+    <div class="app" align="center">
+        <div class="row" style="width: 99%;">
+            {{#each articleData}}
+                <div class="shadow-z-2">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="row jumbotron" style="width: 100%;height: 400px;overflow-y: scroll;">
+                            <!-- =============== FOTO =================== -->
+                            {{#if isAdaFoto}}
+                            {{else}}
+                                <div class="col-md-12">
+                                    <div align="center">
+                                        <div class="jumbotron pict_wall shadow-z-4 shadow-z-2">
+                                            <img src="{{image}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/if}}
+                            <!-- =============== ARTICLE =================== -->
+                            <div class="col-md-12">
+                                <p class="namaData" style="font-size: medium;color: firebrick;"><b> {{title}}</b></p>
+
+                                <p class="detailData"> {{description}} ~ <a class="detailData" style="font-size: xx-small;" href="{{link}}"> Sumber</a></p>
+                            </div>
+                        </div>
+                        <!-- read more -->
+
+                        <a class="readMore btn btn-fab btn-fab-danger btn-fab-mini " style="position: absolute;bottom: 25px;right: 25px;z-index: 1;opacity: 0.5;">
+                            <i style="top:0px;left:-1px;color: red;" class="glyphicon glyphicon-resize-full"></i>
+                        </a>
+                        <div class="fb-share-button" data-href="{{link}}" style="position: absolute;bottom: 30px;left: 30px;"></div>
+
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+
+    {{#if isReadMore}}
+        {{>blockModals}}
+        <div class="jumbotron detailDataKu -webkit-scrollbar" style="position:fixed;z-index: 9999;left:1%;top:1%;bottom:1%;width: 98%;height: 98%;overflow-y: scroll;">
+            <h2 style="color: firebrick;">{{showTitle}}</h2>
+            <div style="overflow-y: scroll;font-size: medium;font-weight: bold;">{{{showContent}}}</div>
+            <a class="tutup btn btn-fab btn-fab-danger btn-danger btn-fab-mini " style="position: fixed;top: 20px;right: 25px;z-index: 99999;">
+                <i style="top:0px;left:-1px;color: white;" class="glyphicon glyphicon-remove"></i>
+            </a>
+        </div>
+    {{/if}}
+
+</template>
+
+<template name="searchArticleLists">
+    {{judul}}
+</template>

@@ -1,0 +1,66 @@
+input:focus ~ label, textarea:focus ~ label, select:focus ~ label, input:valid ~ label, textarea:valid ~ label, select:valid ~ label {
+    font-size: 0.75em;
+    color: cornflowerblue;
+    top: -2.25rem;
+    -webkit-transition: all 0.125s ease;
+    transition: all 0.125s ease;
+}
+
+.styled-input {
+    float: left;
+    width: 33.3333%;
+    margin: 2rem 0 1rem;
+    position: relative;
+}
+
+.styled-input label {
+    color: lightgrey;
+    position: absolute;
+    top: 1px;
+    left: 0;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    pointer-events: none;
+}
+
+.styled-input.wide {
+    width: 100%;
+}
+
+input,
+textarea {
+    padding: 1rem 1rem;
+    border: 0;
+    width: 100%;
+    font-size: 1rem;
+}
+
+input ~ span,
+select ~ span,
+textarea ~ span {
+    width: 0;
+    background: cornflowerblue;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    -webkit-transition: all 0.125s ease;
+    transition: all 0.125s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 0;
+}
+
+input:focus ~ span,
+select:focus ~ span,
+textarea:focus ~ span {
+    width: 100%;
+    -webkit-transition: all 0.075s ease;
+    transition: all 0.075s ease;
+}
+
+textarea {
+    width: 100%;
+}

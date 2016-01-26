@@ -1,0 +1,19 @@
+<template name="home">
+    <!-- =====================  Header  ==========================  -->
+    {{> sidebar}}
+    {{> header}}
+    <!-- ================  Notifikasi Message  ===================  -->
+    {{> flashTemplates}}
+    {{> articleLists}}
+
+    {{#if currentUser}}
+        {{> profilebar}}
+    {{else}}
+        <div style="color: white;font-weight: 700;font-size: small; position:fixed;right: 20px;top: 20px;">
+            <a id="loginGoogle" class="btn btn-warning btn-sm btn-lg btn-login" style="position:fixed;color: white;top: 10px;right: 25px;" href="#">LOGIN / DAFTAR</a>
+            {{>loginButtons}}
+        </div>
+    {{/if}}
+    <BR><BR><BR>
+</template>
+

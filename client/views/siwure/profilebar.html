@@ -1,0 +1,16 @@
+<template name="profilebar">
+    <div class="col-xs-10 col-sm-4 col-md-4 sidebar sidebar-right sidebar-animate shadow-z-5"
+         style="background-color:white;z-index: 4000;">
+        <div class="jumbotron pict_wall profilebar">
+            <a class="navbar-brand namaprofile" href="/profile">{{username}}</a>
+            <img src="{{pictProfile}}">
+        </div>
+        <div class="jumbotron" style="width: 100%; align-self: center;position: relative;top: 15px;">
+            <ul class="nav navbar-stacked">
+                <li><a class="mdi-action-account-box" style="font-size: inherit;color: #006E99;" href="/profile"> Profile</a></li>
+                <li><a class="linkLogout mdi-action-lock-open" style="font-size: inherit;color: darkred" href=""> Logout</a></li>
+            </ul>
+        </div>
+        <BR><BR><BR><BR><BR>
+    </div>
+</template>

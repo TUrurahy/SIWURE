@@ -1,0 +1,56 @@
+<template name="sidebar">
+    <div class="container-fluid" style="position: relative;background-color: white;">
+        <div id="sidebar" class="col-xs-10 col-sm-6 col-md-4 sidebar sidebar-left sidebar-animate sidebar-md-show shadow-z-2 -webkit-scrollbar"
+             style="z-index: 10000;background-color: {{isWarna}};">
+
+            <div style="position: absolute; top: 10px;z-index: 1999;align-self: center;width: 100%;">
+                <div align="center">
+                    <a href="/" style="font-size: x-large;color: darkred;">SIWURE</a>
+
+                    <p style="font-size:small;color: darkgrey;top: 0px;">Looking related news for you</p>
+                </div>
+            </div>
+            <BR><BR><BR>
+
+            <div class="list-group panel panel-default shadow-z-2 flexSidebar" style="background-color: {{isWarna}};">
+                <ul class="nav navbar-stacked">
+                    <li>
+                        <a class="lihatarticle mdi-av-play-circle-fill" id="" href="/" style="top: -1.5px;"> ALL NEWS</a>
+                    </li>
+                    {{#each categorys}}
+                        <li>
+                            <a class="lihatarticle mdi-av-play-circle-fill" id="{{_id}}" href="#" style="top: -1.5px;"> {{judul}}</a>
+                            {{#if currentUser}}
+                                <div class="close has-info search" style="position: absolute;right: -2px;top:-12px;">
+                                    <a class="editCategory mdi-editor-mode-edit btn btn-sm" href="#" style="color: lightgrey;"></a>&nbsp;
+                                </div>
+                            {{/if}}
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+
+            {{#if currentUser}}
+                <BR><BR><BR><BR><BR>
+                <!-- ================  CREATE NEW  ===================  -->
+                {{#if isCreatingCategory}}
+                    <div class="form-group jumbotron shadow-z-5 createData">
+                        <form class="create-category">
+                            <div class="form-group has-info">
+                                <input name="name" type="text" class="form-control" placeholder="Subject Category"><BR>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-raised mdi-content-save btn-sm"></button>
+                            <a class="cancel btn btn-raised mdi-content-clear btn-sm"></a>
+                        </form>
+                    </div>
+                {{else}}
+                    <div style="position:absolute;bottom: 10px;left: 40%;" align="center">
+                        <a href="#" class="create btn btn-default btn btn-sm btn-fab shadow-z-2 shadow-z-4 mdi-content-add-circle" style="z-index: 10;color: darkgrey;"></a>
+                    </div>
+                {{/if}}
+            {{/if}}
+
+
+        </div>
+    </div>
+</template>

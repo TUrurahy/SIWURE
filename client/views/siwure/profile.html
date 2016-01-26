@@ -1,0 +1,41 @@
+<template name="profile">
+    {{> sidebar}}
+    {{> header}}
+    {{> flashTemplates}}
+    {{> profilebar}}
+
+    <div class="container-fluid profile">
+        <div class="row main" style="position:relative; width: 99%;left: 2%;">
+            <div class="jumbotron pict_wall headernama">
+                <a class="navbar-brand namauser" href="#">{{fullname}}</a>
+                <a class="navbar-brand namajabatan" href="#">{{work.jabatan}}</a>
+                <img src="{{pictProfile}}">
+            </div>
+
+            <a style="position: relative; top: -45px;left: 30px;z-index: 10;" data-toggle="sidebar"
+               data-target=".sidebar-right">
+                <img class="img-circle shadow-z-3 btn-raised"
+                     style="width: 100px;position: relative;top:-10px;left: -9px;"
+                     src="{{pictProfile}}">
+            </a>
+
+
+
+            <div class="jumbotron"
+                 style="width: 100%; align-self: center;position: relative;top: -100px;background-color: #B6EAFF;">
+                <BR>
+                <BR><BR>
+
+                <label class="control-label" for="textFirstName" style="font-size: x-small;">First Name</label>
+                <input name="textFirstName" type="text" class="form-control floating-label" placeholder="First Name"
+                       value="{{firstname}}"><BR>
+                <label class="control-label" for="textLastName" style="font-size: x-small;">Last Name</label>
+                <input name="textLastName" type="text" class="form-control floating-label" placeholder="Last Name"
+                       value="{{lastname}}"><BR>
+                <label class="control-label" for="textEmail" style="font-size: x-small;">E-Mail</label>
+                <input name="textEmail" type="email" class="form-control floating-label" placeholder="Email"
+                       value="{{email}}"><BR>
+            </div>
+        </div>
+    </div>
+</template>

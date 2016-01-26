@@ -1,0 +1,16 @@
+<template name="header">
+    <div class="shadow-z-4">
+        <button type="button" class="create btn btn-fab btn-raised shadow-z-4 shadow-z-2" style="position: fixed; bottom: 20px;left:20px;z-index: 99;"
+                data-toggle="sidebar" data-target=".sidebar-left">
+            <img class="img-circle btn-raised mdi-action-dashboard shadow-z-4 shadow-z-2" style="width:45px;height:45px;position: relative;top:-9.5px;left:-9.5px;" src="/images/logo.svg">
+        </button>
+    </div>
+    {{#if currentUser}}
+        <button type="button" class="create btn btn-fab btn-raised shadow-z-4 shadow-z-2 comboMenu_ButtonUtama"
+                data-toggle="sidebar" data-target=".sidebar-right">
+            <img class="img-circle shadow-z-4 btn-raised mdi-action-dashboard"
+                 style="width:45px;position: relative;top:-9px;left:-9px;z-index:999;"
+                 src="{{pictProfile}}">
+        </button>
+    {{/if}}
+</template>
